@@ -1,0 +1,21 @@
+/* Optional: Customize form styling */
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.card-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.btn {
+    font-weight: bold;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bookList.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Students</h1>
+        <a th:href="@{/student/addStudentForm/{id}(id=${id})}" class="btn btn-primary">Add New Student</a>
+    </div>
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>PRN</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Update Student</th>
+            <th>Delete Student</th>
+            <th>Issued Books</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${students}">
+            <td th:text="${student.prn}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.department}"></td>
+            <td>
+                <a th:href="@{/student/update/{prn}/{id}(id=${id}, prn=${student.prn})}" class="btn btn-danger btn-sm">Update</a>
+            </td>
+            <td>
+                <a th:href="@{/student/delete/{prn}/{id}(id=${id}, prn=${student.prn})}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+            <td>
+                <a th:href="@{/librarian/issuedBooks/{prn}/{id}(id=${id}, prn=${student.prn})}" class="btn btn-danger btn-sm">View</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
